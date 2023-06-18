@@ -1,5 +1,28 @@
 <!-- Display the countdown timer in an element -->
-<p id="demo"></p>
+<p id="timer" class="maintext"></p>
+<style>
+  body{
+    background-color: rgb(13, 15, 15);
+  }
+  @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #fff;
+      }
+      50% {
+        text-shadow: 0 0 20px #00f, 0 0 30px #00f;
+      }
+      100% {
+        text-shadow: 0 0 5px #fff;
+      }
+    }
+  .maintext{
+    color:rgb(253, 168, 168);
+    font-size: 800%;
+    text-align: center;
+    font-family: Impact;
+    animation: glow 2s infinite;
+  }
+</style>
 
 <script>
 // Set the date we're counting down to
@@ -18,17 +41,16 @@ var x = setInterval(function() {
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  var millis = Math.floor((distance % (1000 * 60)));
+  var seconds = (distance % (1000 * 60)) / 1000+Math.random()*0.001;
 
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + " days " + hours + " hours "
-  + minutes + " minutes " + seconds + "." + millis + " seconds ";
+  document.getElementById("timer").innerHTML = days + " days " + hours + " hours "
+  + minutes + " minutes " + seconds.toFixed(15) + " seconds ";
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "August 12 2036, heat death of the universe.";
+    document.getElementById("timer").innerHTML = "August 12 2036, heat death of the universe.";
   }
-}, 1000/60);
+}, 1000/120);
 </script>
