@@ -1,6 +1,8 @@
 <!-- Display the countdown timer in an element -->
 
 <p id="timer" class="maintext"></p>
+<p class="maintext" style="color:red;text-decoration: underline;">Until the 
+heat death of the Universe</p>
 <style>
   body{
     background-color: rgb(13, 15, 15);
@@ -18,7 +20,8 @@
     }
   .maintext{
     white-space: pre;
-    margin-top: 7%;
+    margin-top: 4%;
+    margin-bottom: 0%;
     color:rgb(253, 168, 168);
     font-size: 800%;
     text-align: center;
@@ -48,7 +51,7 @@ var x = setInterval(function() {
 
   // Display the result in the element with id="demo"
   document.getElementById("timer").innerHTML = days + " Days \n" + hours + " Hours \n"
-  + minutes + " Minutes \n" + seconds.toFixed(3) + " Seconds \n\n Until the \nheat death of the Universe";
+  + minutes + " Minutes \n" + seconds.toFixed(3) + " Seconds";
 
   // If the count down is finished, write some text
   if (distance < 0) {
