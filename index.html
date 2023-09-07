@@ -1,8 +1,7 @@
 <!-- Display the countdown timer in an element -->
 
 <p id="timer" class="maintext"></p>
-<p class="maintext" style="color:red;text-decoration: underline;">Until the 
-heat death of the Universe</p>
+<p id="name" class="maintext" style="color:red;text-decoration: underline;">Timer</p>
 <style>
   body{
     background-color: rgb(13, 15, 15);
@@ -29,15 +28,16 @@ heat death of the Universe</p>
     font-size: 800%;
     text-align: center;
     font-family: Impact;
-    animation: glow 2s infinite;
+    /*animation: glow 2s infinite;*/
     line-height: 0.9;
   }
 </style>
 
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Aug 12, 2036 00:00:00").getTime();
-
+const urlParams = new URLSearchParams(window.location.search);
+var countDownDate = new Date(urlParams.get("date")).getTime();
+document.getElementById("name").textContent = urlParams.get("name");
 // Update the count down every 1 second
 var x = setInterval(function() {
 
@@ -60,7 +60,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("timer").innerHTML = "August 12 2036, heat death of the universe.";
+    document.getElementById("timer").innerHTML = urlParams.get("end");
   }
 }, 1000/120);
 </script>

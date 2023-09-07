@@ -1,2 +1,2 @@
-# HEAT-DEATH-OF-THE-UNIVERSE
-[AUGUST 12 2036](https://ukra174.github.io/HEAT-DEATH-OF-THE-UNIVERSE/), HEAT DEATH OF THE UNIVERSE.
+# This is the universal countdown timer
+You can create your own countdown timers with this tool. All data is stored in the URL queries.
